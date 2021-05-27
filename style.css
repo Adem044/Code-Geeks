@@ -1,7 +1,16 @@
-
 body {
   margin: 0;
   overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
 }
 
 img {
@@ -10,36 +19,40 @@ img {
 
 header {
   align-items: center;
-  display: grid;
-  gap: 0;
-  padding: 50px 20px 100px;
-  grid-template-columns: 25% auto;
+  display: flex;
+  padding: 1rem 100px;
+}
+
+header > nav {
+  width: 100%;
+  margin-left: 2rem;
 }
 
 .header-wrapper {
-  display: grid;
-  grid-template-columns: 115px 60px auto;
-  gap: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.header-wrapper img {
+  width: 115px;
 }
 
 .logo-title {
-  margin: auto;
+  margin-left: 0.5rem;
   font-size: 20px;
   color: rgb(233, 68, 3);
 }
 
-nav a {
+header nav a {
   padding: 14px 16px;
-  text-decoration: none;
   font-size: 20px;
 }
 
-nav a:hover {
+header nav a:hover {
   background-color: rgb(233, 105, 45);
 }
 
 .main {
-  display: flex;
   margin-bottom: 150px;
   position: relative;
 }
@@ -57,39 +70,42 @@ nav a:hover {
   color: white;
   position: absolute;
   width: 65%;
-  padding: 20px 100px 30px 30px;
-  box-sizing: border-box;
+  padding: 20px;
   bottom: -130px;
   right: 0;
 }
 .title {
   font-size: 3.5rem;
   font-weight: lighter;
-  margin: 0;
-  margin-bottom: 5px !important;
+  margin-bottom: 5px;
 }
 .content {
-  margin: 0;
   font-weight: lighter;
   line-height: 1.5;
   letter-spacing: 1px;
+  width: 90%;
 }
 
 .blog {
   padding: 15px 50px 100px 50px;
-  box-sizing: border-box;
 }
 
 .blog-title {
   font-size: 64px;
   font-weight: lighter;
-  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.blog-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
 }
 
 .blog-cards {
   display: grid;
-  grid-template-columns: auto auto auto;
-  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
 }
 
 .blog-content img {
@@ -97,7 +113,6 @@ nav a:hover {
   object-fit: cover;
 }
 .blog-content {
-  box-sizing: border-box;
   background-color: #645b94;
 }
 .wrapper {
@@ -107,12 +122,10 @@ nav a:hover {
   color: white;
 }
 .second {
-  grid-row: 1 / span 2;
-  grid-column: 3 / 3;
-  height: 850px;
+  align-self: flex-start;
 }
 .last {
-  grid-column: 1 / span 2;
+  grid-column: span 2;
 }
 .wrapper button {
   margin-top: 15px;
@@ -136,20 +149,21 @@ nav a:hover {
 }
 
 .post {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  gap: 30px;
   background-color: rgb(255, 232, 255);
   padding: 40px 50px 100px 50px;
 }
 
+.post-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
 .related-post {
-  grid-column: 1 / 4;
   font-size: 64px;
   font-weight: lighter;
   margin-bottom: 10px;
   color: rgb(90, 90, 90);
-  margin-top: 0;
 }
 
 .post .blog-content {
@@ -189,13 +203,12 @@ footer {
 }
 .newsletter {
   height: 115%;
-  padding: 50px 50px 0 50px;
+  padding: 2rem 2rem 0 2rem;
   background-color: #645b94;
   position: absolute;
   top: -50px;
   right: 50px;
   color: white;
-  box-sizing: border-box;
   width: 35%;
 }
 
@@ -204,7 +217,6 @@ footer {
   width: 100%;
   height: 50px;
   padding: 20px;
-  box-sizing: border-box;
   border-radius: 4px;
   border: 0;
   margin-bottom: 10px;
@@ -220,12 +232,12 @@ footer {
   line-height: 1.5;
 }
 .newsletter button {
-  width: 30%;
-  height: 40px;
+  padding: 0.75rem 1rem;
   background-color: rgb(251, 198, 211);
   border: 0;
   border-radius: 4px;
   cursor: pointer;
+  margin-bottom: 0.25rem;
 }
 .newsletter button:hover {
   background-color: rgb(250, 158, 181);
@@ -247,12 +259,10 @@ footer {
   width: 50%;
   margin-right: 0;
   display: inline-block;
-  box-sizing: border-box;
   color: white;
 }
 
 .container h1 {
-  margin: 0;
   margin-top: 10px;
   letter-spacing: 1.5px;
   font-weight: bold;
@@ -262,7 +272,9 @@ footer {
 .container p {
   margin-top: 2.5px;
   letter-spacing: 1px;
-  line-height: 1.5;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+  color: rgba(231, 231, 231, 0.95);
 }
 .container .main-nav {
   margin-left: 0;
@@ -275,14 +287,105 @@ footer {
 .container .main-nav a {
   color: white;
   font-weight: bolder;
+  padding-left: 1rem;
 }
 .container .main-nav a:hover {
   color: rgb(24, 10, 10);
-  background-color: inherit;
-  font-weight: lighter;
+  text-decoration: underline;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 1000px) {
+  .blog-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 800px) {
+  header {
+    padding: 1rem;
+    text-align: right;
+  }
+  header nav {
+    margin-left: 0;
+  }
+  .main {
+    margin-bottom: 1.5rem;
+  }
+  .headline {
+    width: 100%;
+    top: 2rem;
+    bottom: unset;
+    background-color: hsla(9, 81%, 45%, 0.75);
+  }
+  .last {
+    grid-column: auto;
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .newsletter {
+    position: static;
+    padding: 1.25rem;
+    height: auto;
+    width: auto;
+    order: 1;
+    margin-bottom: 1rem;
+  }
+  .logo {
+    order: 2;
+    margin: auto;
+  }
+  .container {
+    order: 3;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .icons {
+    margin-top: 2rem;
+    position: static;
+  }
+}
+
+@media (max-width: 625px) {
+  .header-wrapper {
+    flex-direction: column;
+  }
+  header nav a {
+    font-size: 1.2rem;
+    padding: 14px 12px;
+  }
+  .logo-title {
+    margin-left: 0;
+    font-size: 0.85rem;
+  }
+  .logo-title br {
+    display: none;
+  }
+  .title {
+    font-size: 2.5rem;
+  }
+  .content {
+    width: 100%;
+  }
+  .blog,
+  .post,
+  footer {
+    padding: 1rem;
+  }
+
+  .related-post {
+    font-size: 2rem;
+  }
+}
+
+/* @media (max-width: 500px) {
   body {
     width: 100vw;
   }
@@ -378,4 +481,4 @@ footer {
     margin: 10px 0;
     justify-content: center;
   }
-}
+} */
